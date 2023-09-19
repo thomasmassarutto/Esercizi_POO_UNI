@@ -73,7 +73,7 @@ public class Noleggio {
         costoBarca = calcolaCostoNoleggioBarca(numeroGiorniNoleggio);
         costiServiziExtra= calcolaCostiServiziExtra(numeroGiorniNoleggio);
 
-        if (this.serviziExtra.isEmpty()){
+        if ( !this.serviziExtra.isEmpty()){
             scontoFisso= 0;
             scontoPercentuale= 0;
         }else{

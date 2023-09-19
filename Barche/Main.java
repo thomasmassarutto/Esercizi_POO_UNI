@@ -37,6 +37,8 @@ public class Main {
         ScontoBassaStagione bassaStagione= new ScontoBassaStagione();
         ScontoClienteFedele clienteFedele= new ScontoClienteFedele();
 
+        // temporaneo: aggiungere Oggetti ModificaPrezzo
+        // ModificaPrezzo sconto= new ModificaPrezzo(sconto1);
         Stack<modificaPrezzo> stackSconti= new Stack<>();
         stackSconti.push(clienteFedele);
         stackSconti.push(bassaStagione);
@@ -45,6 +47,8 @@ public class Main {
         PenaleAffondata barcaAffondata= new PenaleAffondata(1000);
         PenalePorto portoSbagliato= new PenalePorto(100);
 
+        // temporaneo: aggiungere Oggetti ModificaPrezzo
+        // ModificaPrezzo penale= new ModificaPrezzo(Penale1);
         Stack<modificaPrezzo> stackPenali= new Stack<>();
         stackPenali.push(barcaAffondata);
         stackPenali.push(portoSbagliato);
