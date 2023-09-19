@@ -1,5 +1,6 @@
 import java.util.*;
 
+import barche.Barca;
 import errori.*;
 
 /* 

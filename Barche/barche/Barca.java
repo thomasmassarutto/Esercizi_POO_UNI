@@ -1,3 +1,5 @@
+package barche;
+
 import enums.*;
 import enums.StatoBarca;
 
@@ -6,7 +8,7 @@ import enums.StatoBarca;
  * 
  */
 
-class Barca{
+public class Barca{
 
     private DimensioneBarca dimensioneBarca;
     private int numeroAlberi;

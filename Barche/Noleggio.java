@@ -1,5 +1,6 @@
 import java.util.*;
 
+import barche.Barca;
 import cliente.Cliente;
 import cliente.ServiziExtraCliente;
 import extra.*;

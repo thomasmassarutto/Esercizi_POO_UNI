@@ -1,5 +1,6 @@
 import java.util.Stack;
 
+import barche.*;
 import cliente.*;
 import enums.DimensioneBarca;
 import enums.StatoBarca;
