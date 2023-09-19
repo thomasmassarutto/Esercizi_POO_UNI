@@ -1,5 +1,6 @@
 import java.util.Stack;
 
+import cliente.*;
 import enums.DimensioneBarca;
 import enums.StatoBarca;
 import enums.TierCliente;
@@ -20,18 +21,16 @@ public class Main {
         Barca barca2= new Barca(DimensioneBarca.m20, null, StatoBarca.DISPONIBILE, "GalleggiaBene", 2);
         Barca barca3= new Barca(DimensioneBarca.m20, null, StatoBarca.DISPONIBILE, "NonAffondaSpa", 1);
 
-        Stack<Barca> stackDiBarche = new Stack<>();
-        stackDiBarche.push(barca1);
-        stackDiBarche.push(barca2);
-        stackDiBarche.push(barca3);
+        RimessaBarche rimessaMareESole = new RimessaBarche(barca1);
+        rimessaMareESole.aggiungiBarca(barca2);
+        rimessaMareESole.aggiungiBarca(barca3);
 
         //gli extra disponibili
         ExtraCuoco cuocoDiBordo= new ExtraCuoco();
         ExtraLavaggio lavaggioFinale= new ExtraLavaggio();
 
-        Stack<ServiziExtra> serviziExtra= new Stack<>();
-        serviziExtra.push(cuocoDiBordo);
-        serviziExtra.push(lavaggioFinale);
+        ServiziExtraCliente serviziExtra= new ServiziExtraCliente(cuocoDiBordo);
+        serviziExtra.aggiungiServizioExtra(lavaggioFinale);
 
         // gli sconti disonibili
         ScontoBassaStagione bassaStagione= new ScontoBassaStagione();
@@ -55,8 +54,7 @@ public class Main {
         // la barca ricrcata dal cliente
         Barca barca100= new Barca(DimensioneBarca.m20, null, StatoBarca.DISPONIBILE, "NonAffondaSpa", 1);
 
-        // creare rimessa
-        RimessaBarche rimessaMareESole = new RimessaBarche(stackDiBarche);
+       
 
         // cercare barca
         rimessaMareESole.findBarca(barca100);

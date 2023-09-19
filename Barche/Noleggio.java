@@ -1,5 +1,7 @@
 import java.util.*;
 
+import cliente.Cliente;
+import cliente.ServiziExtraCliente;
 import extra.*;
 import modificaprezzi.modificaPrezzo;
 import modificaprezzi.sconti.*;
@@ -23,26 +25,14 @@ public class Noleggio {
     private String dataFine;
     private String luogoInizio;
     private String luogoFine;
-    private Stack<ServiziExtra> stackServiziExtra;
+    private ServiziExtraCliente serviziExtra;
     private Stack<modificaPrezzo> stackSconti;
     
-    /**
-     * Costruttore della classe Noleggio.
-     *
-     * @param cliente: Cliente: il cliente che effettua il noleggio
-     * @param barca: Barca: la barca oggetto del noleggio
-     * @param dataInizio: Stringa: la data di inizio del noleggio in formato gg/mm/yyyy
-     * @param dataFine: Stringa: la data di fine del noleggio in formato gg/mm/yyyy
-     * @param luogoInizio: Stringa: il luogo di inizio del noleggio
-     * @param luogoFine: Stringa: il luogo di fine del noleggio
-     * @param stackServiziExtra:    Stack<InterfacciaServiziExtra>: stack contenente i servizi extra 
-     *                              associati al noleggio, scelti dal cliente
-     * @param private Stack<InterfacciaSconti> stackSconti applicati.
-     */
+
 
     public Noleggio(    Cliente cliente, Barca barca, String dataInizio, String dataFine,
                         String luogoInizio, String luogoFine, 
-                        Stack<ServiziExtra> stackServiziExtra,
+                        ServiziExtraCliente serviziExtra,
                         Stack<modificaPrezzo> stackSconti){
 
         this.barca= barca;
@@ -51,7 +41,7 @@ public class Noleggio {
         this.dataInizio= dataInizio;
         this.luogoFine= luogoFine;
         this.luogoInizio= luogoInizio;
-        this.stackServiziExtra= stackServiziExtra;
+        this.serviziExtra= serviziExtra;
         this.stackSconti= stackSconti;
     }
     /**
@@ -128,8 +118,8 @@ public class Noleggio {
     private double calcolaCostiServiziExtra(int giorni){
         double costoServiziExtra=0;
     
-        while( !this.stackServiziExtra.isEmpty() ){
-            ServiziExtra servizio= this.stackServiziExtra.pop();
+        while( ! this.serviziExtra.isEmpty() ){
+            ServiziExtra servizio= this.serviziExtra.pop();
             if (servizio.isGiornaliero()){
                 costoServiziExtra= costoServiziExtra + (servizio.getCosto() * giorni);
             }else{

@@ -10,8 +10,13 @@ import errori.*;
 public class RimessaBarche{
     private Stack <Barca> barche;
 
-    public RimessaBarche(Stack <Barca> elencoBarche){
-        this.barche= elencoBarche;
+    public RimessaBarche(Barca barca){
+        this.barche= new Stack<>();
+        this.barche.push(barca);
+    }
+
+    public void aggiungiBarca(Barca barca){
+        this.barche.push(barca);
     }
 
 /**
