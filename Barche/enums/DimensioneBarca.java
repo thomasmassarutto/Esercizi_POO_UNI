@@ -1,5 +1,7 @@
 package enums;
-
+/**
+ * enum delle dimensioni delle barche disponibili
+ */
 public enum DimensioneBarca {
     m7,
     m8,

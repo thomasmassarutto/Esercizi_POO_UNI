@@ -1,6 +1,6 @@
-package modificaprezzi.penali;
+package modificaPrezzi.penali;
 
-import modificaprezzi.modificaPrezzo;
+import modificaPrezzi.modificaPrezzo;
 
 public class PenalePorto implements modificaPrezzo{
 

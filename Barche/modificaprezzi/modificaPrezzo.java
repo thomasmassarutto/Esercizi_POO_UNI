@@ -1,4 +1,10 @@
-package modificaprezzi;
+package modificaPrezzi;
+
+/**
+ * Gestire le modifiche dei prezzi: sconti e penali
+ * Ogni costo ha un valore in percentuale oppure un costo fisso
+ * Tutti i  modificaPrezzo SONO double maggiori di zero
+ */
 public interface modificaPrezzo {
 
     /**

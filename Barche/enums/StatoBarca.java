@@ -1,5 +1,7 @@
 package enums;
-
+/**
+ * Enum dei possibili stati di una barca
+ */
 public enum StatoBarca {
     DISPONIBILE,
     PRENOTATA,

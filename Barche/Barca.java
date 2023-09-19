@@ -2,8 +2,8 @@ import enums.*;
 import enums.StatoBarca;
 
 /*
- * MISSION:
- * Rappresenta una barca
+ * Rappresenta una barca mette a disposizione mari metodi per conoscere informazioni sulla barca
+ * 
  */
 
 class Barca{
@@ -14,7 +14,15 @@ class Barca{
     private StatoBarca statoBarca;
     private CaratteristicheBarca caratteristicheBarca;
     private double tariffaGiornaliera;
-
+    /**
+     * Costruttore
+     * @param dimensioneBarca: DimensioneBarca, deve essere fra le predefinite
+     * @param caratteristicheBarca: CaratteristicheBarca, elenco di optional della barca
+     * @param statoBarca: StatoBarca, indica lo stato della barca es noleggiata
+     * @param marcaBarca: String, marca della barca
+     * @param numeroAlberi: int numero alberi della barca
+     * 
+     */
     public Barca(   DimensioneBarca dimensioneBarca, CaratteristicheBarca caratteristicheBarca,
                     StatoBarca statoBarca, String marcaBarca, int numeroAlberi){
                         

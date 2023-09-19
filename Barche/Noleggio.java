@@ -3,8 +3,8 @@ import java.util.*;
 import cliente.Cliente;
 import cliente.ServiziExtraCliente;
 import extra.*;
-import modificaprezzi.modificaPrezzo;
-import modificaprezzi.sconti.*;
+import modificaPrezzi.modificaPrezzo;
+import modificaPrezzi.sconti.*;
 import enums.*;
 import enums.StatoBarca;
 import errori.ErroreSconto;
@@ -29,7 +29,17 @@ public class Noleggio {
     private Stack<modificaPrezzo> stackSconti;
     
 
-
+    /**
+     * Costruttore
+     * @param cliente: Cliente
+     * @param barca: Barca
+     * @param dataInizio: String formato dd/mm/yyyy
+     * @param dataFine: String formato dd/mm/yyyy
+     * @param luogoInizio: String
+     * @param luogoFine: String
+     * @param serviziExtra: ServiziExtraCliente: elenco dei servizi che il cliente ha richiesto
+     * @param stackSconti: Stack<modificaPrezzo>: sconti applicabili(DA MIGLIORARE)
+     */
     public Noleggio(    Cliente cliente, Barca barca, String dataInizio, String dataFine,
                         String luogoInizio, String luogoFine, 
                         ServiziExtraCliente serviziExtra,
@@ -44,9 +54,11 @@ public class Noleggio {
         this.serviziExtra= serviziExtra;
         this.stackSconti= stackSconti;
     }
+
     /**
      * calcola il preventivo
      * @return double: il preventivo del costo del noleggio x>=0
+     * @throws ErroreSconto
      */
     public double preventivo() throws ErroreSconto{
         double preventivo=0;
@@ -60,8 +72,13 @@ public class Noleggio {
         costoBarca = calcolaCostoNoleggioBarca(numeroGiorniNoleggio);
         costiServiziExtra= calcolaCostiServiziExtra(numeroGiorniNoleggio);
 
-        scontoFisso= calcolaPrezzoFisso(stackSconti);
-        scontoPercentuale= calcolaPrezzoPercentuale(stackSconti);
+        if (this.serviziExtra.isEmpty()){
+            scontoFisso= 0;
+            scontoPercentuale= 0;
+        }else{
+            scontoFisso= calcolaPrezzoFisso(stackSconti);
+            scontoPercentuale= calcolaPrezzoPercentuale(stackSconti);
+        }
 
         preventivo= (costoBarca + costiServiziExtra - scontoFisso) * (1 - scontoPercentuale);
 
@@ -89,6 +106,10 @@ public class Noleggio {
         double prezzoPenali=0;
         double penaliFisse=0;
         double penaliPercentuali=0;
+        
+        if(penali.isEmpty()){
+            return prezzoPenali;
+        } 
 
         penaliFisse= calcolaPrezzoFisso(penali);
         penaliPercentuali= calcolaPrezzoPercentuale(penali);
@@ -145,7 +166,7 @@ public class Noleggio {
     }
 
     /**
-     * 
+     * Calcola i servizi a prezzo fisso
      * @param stackSconti: stack contenente oggetti modificaPrezzo
      * @return double: sconto da applicare in euro
      * @throws ErroreSconto
@@ -169,7 +190,7 @@ public class Noleggio {
 
 
     /**
-     * 
+     * Calcola i servizi a prezzo percentuale
      * @param stackSconti: stack contenente oggetti modificaPrezzo
      * @return double: sconto da applicare in percentuale 0<=x<=1
      * @throws ErroreSconto

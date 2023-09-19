@@ -1,5 +1,10 @@
 package cliente;
 
+/** 
+ * Rappresenta un cliente
+ *  -Nome
+ *  -Tier: Livello fedeltà del cliente (utile per applicare sconti) 
+ */
 import enums.TierCliente;
 
 public class Cliente {

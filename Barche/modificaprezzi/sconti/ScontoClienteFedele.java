@@ -1,6 +1,6 @@
-package modificaprezzi.sconti;
+package modificaPrezzi.sconti;
 
-import modificaprezzi.modificaPrezzo;
+import modificaPrezzi.modificaPrezzo;
 
 public class ScontoClienteFedele implements modificaPrezzo{
 

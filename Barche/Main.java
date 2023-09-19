@@ -7,11 +7,11 @@ import enums.TierCliente;
 import extra.ExtraCuoco;
 import extra.ExtraLavaggio;
 import extra.ServiziExtra;
-import modificaprezzi.modificaPrezzo;
-import modificaprezzi.penali.PenaleAffondata;
-import modificaprezzi.penali.PenalePorto;
-import modificaprezzi.sconti.ScontoBassaStagione;
-import modificaprezzi.sconti.ScontoClienteFedele;
+import modificaPrezzi.modificaPrezzo;
+import modificaPrezzi.penali.PenaleAffondata;
+import modificaPrezzi.penali.PenalePorto;
+import modificaPrezzi.sconti.ScontoBassaStagione;
+import modificaPrezzi.sconti.ScontoClienteFedele;
 
 public class Main {
     public static void main (String[] args) {

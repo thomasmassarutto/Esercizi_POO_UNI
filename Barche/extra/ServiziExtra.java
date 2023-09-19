@@ -1,5 +1,8 @@
 package extra;
-
+/**
+ * I servizi extra sono i servizi che l'azienda mette a disposizione per i suoi clienti
+ * I servizi hanno un costo che può essere giornaliero o una tantum.
+ */
 public interface ServiziExtra {
 
     /**
