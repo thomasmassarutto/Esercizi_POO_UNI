@@ -1,4 +1,5 @@
 package cliente;
+
 import enums.TierCliente;
 
 public class Cliente {
